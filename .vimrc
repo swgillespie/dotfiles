@@ -8,7 +8,7 @@ set expandtab
 set showcmd
 
 let mapleader=" "
-colorscheme molokai
+syntax on
 
 set guioptions-=m  "menu bar
 set guioptions-=T  "toolbar
@@ -23,29 +23,37 @@ map <C-K> :pyf ~/Documents/workspace/cpp/cppos/scripts/clang-format.py<CR>
 imap <C-K> <c-o> :pyf ~/Documents/workspace/cpp/cppos/scripts/clang-format.py<CR>
 
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+if has("python")
+    Plugin 'Valloric/YouCompleteMe'
+endif
 Plugin 'rdnetto/YCM-Generator'
-Plugin 'jeaye/color_coded'
+if has("lua")
+    Plugin 'jeaye/color_coded'
+endif
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tomasr/molokai'
+Plugin 'bling/vim-airline'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+colorscheme molokai
+
+let g:ycm_disable_for_files_larger_than_kb = 0
+set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set guifont=Source\ Code\ Pro
+
+if has('win32')
+    let g:ycm_global_ycm_extra_conf = 'C:\Users\segilles\.ycm_extra_conf.py'
+else
+    let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+endif
+
+set cursorline
