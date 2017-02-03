@@ -39,6 +39,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,6 +52,7 @@ let g:ycm_disable_for_files_larger_than_kb = 0
 set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set guifont=Source\ Code\ Pro
+set guioptions-=L
 
 if has('win32')
     let g:ycm_global_ycm_extra_conf = 'C:\Users\segilles\.ycm_extra_conf.py'
