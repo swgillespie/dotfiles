@@ -32,9 +32,6 @@ if has("python") || has("python3")
     Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'rdnetto/YCM-Generator'
-if has("lua")
-    Plugin 'jeaye/color_coded'
-endif
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomasr/molokai'
