@@ -28,7 +28,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-if has("python")
+if has("python") || has("python3")
     Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'rdnetto/YCM-Generator'
@@ -46,7 +46,11 @@ Plugin 'racer-rust/vim-racer'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme molokai
+try
+    colorscheme molokai
+catch /^Vim\%((\a\+)\)\=:E185/
+    " not installed yet - will get installed by Vundle later
+endtry
 
 let g:ycm_disable_for_files_larger_than_kb = 0
 set list
