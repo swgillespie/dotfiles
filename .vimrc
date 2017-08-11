@@ -9,6 +9,7 @@ set showcmd
 set encoding=utf-8
 set relativenumber
 set number
+set cc=80
 
 let mapleader=" "
 syntax on
