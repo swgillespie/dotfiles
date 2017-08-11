@@ -6,6 +6,9 @@ set tabstop=4
 set shiftwidth=2
 set expandtab
 set showcmd
+set encoding=utf-8
+set relativenumber
+set number
 
 let mapleader=" "
 syntax on
@@ -39,6 +42,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -62,3 +66,8 @@ else
 endif
 
 set cursorline
+
+" Start up NerdTree on load"
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
