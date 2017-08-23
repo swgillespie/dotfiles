@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sudo apt-get install git vim cmake python-dev libpython3-dev
+sudo apt-get install git vim cmake python-dev libpython3-dev g++
 
 echo "[+] Acquiring dotfiles repo"
 git clone git@github.com:swgillespie/dotfiles.git ~/.dotfiles
